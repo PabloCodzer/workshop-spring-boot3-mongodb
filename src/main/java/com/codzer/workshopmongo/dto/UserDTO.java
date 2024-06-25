@@ -18,7 +18,7 @@ public class UserDTO implements Serializable
 	public UserDTO(User obj) 
 	{
 		id = obj.getId();
-		name = obj.getNome();
+		name = obj.getName();
 		email = obj.getEmail();
 	}
 

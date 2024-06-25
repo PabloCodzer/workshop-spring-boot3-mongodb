@@ -17,12 +17,13 @@ public class User implements Serializable
 	
 	public User() {}
 
-	public User(String id, String nome, String email) {
+	public User(String id, String name, String email) {
 		super();
 		this.id = id;
-		this.name = nome;
+		this.name = name;
 		this.email = email;
 	}
+
 
 	public String getId() {
 		return id;
@@ -32,11 +33,11 @@ public class User implements Serializable
 		this.id = id;
 	}
 
-	public String getNome() {
+	public String getName() {
 		return name;
 	}
 
-	public void setNome(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
