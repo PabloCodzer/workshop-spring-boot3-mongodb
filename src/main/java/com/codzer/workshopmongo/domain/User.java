@@ -36,7 +36,7 @@ public class User implements Serializable
 		return name;
 	}
 
-	public void setNome(String nome) {
+	public void setNome(String name) {
 		this.name = name;
 	}
 
