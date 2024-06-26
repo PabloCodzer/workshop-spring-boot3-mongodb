@@ -42,5 +42,13 @@ public class UserService {
 		return new User(objDTO.getId(), objDTO.getName(), objDTO.getEmail());
 	}
 	
-	
+	public void delete(String id)
+	{
+		Optional<User> delUsu = findById(id);
+		if( !delUsu.isEmpty() )
+		{
+			userRepo.deleteById(id); 
+		}
+		 
+	}
 }

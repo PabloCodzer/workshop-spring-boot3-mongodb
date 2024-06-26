@@ -49,4 +49,11 @@ public class UserResource
 		 URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/{id}").buildAndExpand(lisUs.getId()).toUri();
 		 return ResponseEntity.created(uri).build();
 	}
+	
+	@RequestMapping(value= "/{id}" , method=RequestMethod.DELETE)
+	public ResponseEntity<Optional<User>> deleteById(@PathVariable String id)
+	{
+		userSer.delete(id);
+		return  ResponseEntity.noContent().build();
+	}
 }
