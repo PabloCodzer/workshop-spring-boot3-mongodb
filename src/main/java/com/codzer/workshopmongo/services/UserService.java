@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.codzer.workshopmongo.domain.User;
+import com.codzer.workshopmongo.dto.UserDTO;
 import com.codzer.workshopmongo.repository.UserRepository;
 import com.codzer.workshopmongo.services.exception.ObjectNotFoundException;
 
@@ -30,4 +31,16 @@ public class UserService {
 		}
 		return usr;
 	}
+	
+	public User insert(User obj)
+	{
+		return userRepo.insert(obj);
+	}
+	
+	public User fromDTO(UserDTO objDTO)
+	{
+		return new User(objDTO.getId(), objDTO.getName(), objDTO.getEmail());
+	}
+	
+	
 }
