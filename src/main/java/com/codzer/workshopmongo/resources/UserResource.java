@@ -56,4 +56,14 @@ public class UserResource
 		userSer.delete(id);
 		return  ResponseEntity.noContent().build();
 	}
+	
+	@RequestMapping(value= "/{id}" , method=RequestMethod.PUT)
+	public ResponseEntity< Optional<User> > updateById(@PathVariable String id, @RequestBody UserDTO obj)
+	{
+		 User lisUs = userSer.fromDTO(obj);
+		 lisUs.setId(id);
+		 lisUs = userSer.insert(lisUs); 
+		 URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/{id}").buildAndExpand(lisUs.getId()).toUri();
+		 return ResponseEntity.noContent().build();
+	}
 }

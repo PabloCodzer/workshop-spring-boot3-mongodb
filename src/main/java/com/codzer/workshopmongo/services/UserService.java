@@ -48,7 +48,13 @@ public class UserService {
 		if( !delUsu.isEmpty() )
 		{
 			userRepo.deleteById(id); 
-		}
-		 
+		}	 
+	}
+	
+	public void update(String id, User obj)
+	{
+		Optional<User> updateUsuDTO = findById(id);
+		User updateUsu =  new User(id, obj.getName(), obj.getEmail());
+		userRepo.save(updateUsu);
 	}
 }
