@@ -13,8 +13,6 @@ public class AuthorDTO implements Serializable
 	public AuthorDTO()
 	{}
 	
-	
-
 	public AuthorDTO(User obj) 
 	{
 		this.id = obj.getId();
