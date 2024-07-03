@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.codzer.workshopmongo.domain.Post;
 import com.codzer.workshopmongo.domain.User;
 import com.codzer.workshopmongo.dto.UserDTO;
 import com.codzer.workshopmongo.services.UserService;
@@ -65,5 +66,14 @@ public class UserResource
 		 lisUs = userSer.insert(lisUs); 
 		 URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/{id}").buildAndExpand(lisUs.getId()).toUri();
 		 return ResponseEntity.noContent().build();
+	}
+	
+	
+	@RequestMapping(value= "/{id}/posts" , method=RequestMethod.GET)
+	public ResponseEntity<List<Post>> findPost(@PathVariable String id)
+	{
+		Optional<User> obj = userSer.findById(id);
+		List<Post> postsByUsr = obj.get().getPosts();
+		return  ResponseEntity.ok().body( postsByUsr );
 	}
 }
