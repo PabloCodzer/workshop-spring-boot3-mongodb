@@ -49,6 +49,6 @@ public class PostResource {
 	{
 		text = URL.decodeParam(text);
 		List<Post> list = postRepository.findByTitle(text);
-		return ResponseEntity.ok().body(list);
+		return ResponseEntity.ok().body(list); 
 	}
 }

@@ -6,7 +6,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.codzer.workshopmongo.domain.Post;
 
-public interface PostRepository extends MongoRepository<Post, String>{
+public interface PostRepository extends MongoRepository<Post, String>
+{
 
 	List<Post> findByTitleContainingIgnoreCase(String text);
 }
