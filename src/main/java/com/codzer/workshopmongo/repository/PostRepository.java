@@ -11,6 +11,7 @@ import com.codzer.workshopmongo.domain.Post;
 @Repository
 public interface PostRepository extends MongoRepository<Post, String>
 {
+	// query com o regex
 	@Query("{ 'title': { $regex: ?0, $options: 'i' } }")
 	List<Post> seachTitle(String text);
 	
